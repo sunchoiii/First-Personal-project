@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -7,8 +8,9 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        //연산 결과가 10개를 초과하는 경우 가장 먼저 저장된 결과를 삭제하고 새로운 연산 결과가 저장될 수 있도록 소스 코드를 수정 -> 큐 사용
-        Queue<Integer> numbers = new LinkedList<>();
+        ////연산 결과가 10개로 고정되지 않고 무한이 저장될 수 있도록 소스 코드를 수정
+        // -> ArrayList 사용 (순서가 있어서 인덱스로 첫번째값을 불러올 수 있기 때문)
+        ArrayList<Integer> numbers = new ArrayList<>();
 
         Scanner sc = new Scanner(System.in);
         /* 반복문 사용해서 연산을 반복 */
@@ -40,7 +42,7 @@ public class App {
                     if (num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                         break;
-                    }
+                        }
                     result = num1 / num2;
                     break;
                 default:
@@ -48,13 +50,15 @@ public class App {
             }
             System.out.println("결과: " + result);
 
-            //현재 저장된 index가 마지막(9)라면 가장 먼저 저장된 결과 값이 삭제 되고 새로운 결과 값이 마지막 index에 저장될 수 있도록 구현
+            // 결과 무한 저장
+            numbers.add(result);
 
-            if (numbers.size() > 9) {
-                numbers.poll();
-                numbers.add(result);
-            } else {
-                numbers.add(result);
+            //“remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제
+            System.out.print("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제) : ");
+            String remove = sc.next();
+            //인덱스 0번 값 삭제 = 맨 처음 저장된 값
+            if (remove.equals("remove")) {
+                numbers.remove(0);
             }
 
             /* exit을 입력 받으면 반복 종료 */
