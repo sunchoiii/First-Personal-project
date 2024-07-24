@@ -1,14 +1,14 @@
 package calculator;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-        /* 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다. */
-        /* 연산의 결과가 저장된 배열의 마지막 index를 저장하는 변수를 선언 */
-        int lastNumber = 10;
-        int [] numbers = new int[lastNumber];
+        //연산 결과가 10개를 초과하는 경우 가장 먼저 저장된 결과를 삭제하고 새로운 연산 결과가 저장될 수 있도록 소스 코드를 수정 -> 큐 사용
+        Queue<Integer> numbers = new LinkedList<>();
 
         Scanner sc = new Scanner(System.in);
         /* 반복문 사용해서 연산을 반복 */
@@ -48,8 +48,13 @@ public class App {
             }
             System.out.println("결과: " + result);
 
-            for (int i = 0; i < lastNumber; i++) {
-                numbers[i] = result;
+            //현재 저장된 index가 마지막(9)라면 가장 먼저 저장된 결과 값이 삭제 되고 새로운 결과 값이 마지막 index에 저장될 수 있도록 구현
+
+            if (numbers.size() > 9) {
+                numbers.poll();
+                numbers.add(result);
+            } else {
+                numbers.add(result);
             }
 
             /* exit을 입력 받으면 반복 종료 */
@@ -63,3 +68,4 @@ public class App {
         }
     }
 }
+
