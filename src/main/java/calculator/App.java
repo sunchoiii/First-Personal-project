@@ -61,10 +61,19 @@ public class App {
                 numbers.remove(0);
             }
 
+            //“inquiry”라는 문자열이 입력되면 저장된 연산 결과 전부를 출력
+            //foreach(향상된 for 문) 사용
+            System.out.print("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회) : ");
+            String show = sc.next();
+            if (show.equals("inquiry")) {
+                for(int result1 : numbers ) {
+                    System.out.println(result1 + " ");
+                }
+            }
+
             /* exit을 입력 받으면 반복 종료 */
             System.out.print("더 계산하시겠습니까?(exit 입력 시 종료) : ");
             String answer = sc.next();
-
             if (answer.equals("exit")) {
                 System.out.println("프로그램을 종료하겠습니다.");
                 break;
