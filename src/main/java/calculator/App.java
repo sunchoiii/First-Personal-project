@@ -3,6 +3,8 @@ package calculator;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static calculator.Calculator.*;
+
 public class App {
 
     public static void main(String[] args) {
@@ -25,14 +27,14 @@ public class App {
             //연산 수행 역할은 Calculator 클래스가 담당 + try ~ catch 문 사용해 예외 처리
             int result;
             try {
-            result = (int) Calculator.calculate(num1, num2, operator);
+            result = (int) calculate(num1, num2, operator);
             System.out.println(result);
             //이 메인 메소드안의 리스트에 result 추가 (아래 코드들 실행되기 위해서)
             numbers.add(result);
             //연산 결과를 Calculator 클래스의 연산 결과를 저장하는 필드 numbers2에 저장
-            Calculator.setNumbers2(result);
+            setNumbers2(result);
             //연산결과를 보여주는 numbers2 리스트를 보여줘!!
-            System.out.println(Calculator.getNumbers2());
+            System.out.println(getNumbers2());
             } catch (OutBadException e) {
                 System.out.println(e.getMessage());
             }
@@ -43,6 +45,8 @@ public class App {
             //인덱스 0번 값 삭제 = 맨 처음 저장된 값
             if (remove.equals("remove")) {
                 numbers.remove(0);
+                // 삭제 메서드가 활용될 수 있도록 수정
+                calculator.removeResult();
             }
 
             //“inquiry”라는 문자열이 입력되면 저장된 연산 결과 전부를 출력

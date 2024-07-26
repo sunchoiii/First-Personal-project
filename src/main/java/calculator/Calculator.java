@@ -42,6 +42,11 @@ public class Calculator {
         numbers2.add(a);
     }
 
+    //Calculator 클래스에 저장된 연산 결과들 numbers2 중  가장 먼저 저장된 데이터를 삭제하는 기능을 가진 메서드
+    public void removeResult() {
+        numbers2.remove(0);
+    }
+
 }
 
 
