@@ -1,8 +1,6 @@
 package calculator;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class App {
@@ -32,7 +30,9 @@ public class App {
             //이 메인 메소드안의 리스트에 result 추가 (아래 코드들 실행되기 위해서)
             numbers.add(result);
             //연산 결과를 Calculator 클래스의 연산 결과를 저장하는 필드 numbers2에 저장
-            Calculator.numbers2(result);
+            Calculator.setNumbers2(result);
+            //연산결과를 보여주는 numbers2 리스트를 보여줘!!
+            System.out.println(Calculator.getNumbers2());
             } catch (OutBadException e) {
                 System.out.println(e.getMessage());
             }
@@ -55,7 +55,7 @@ public class App {
                 }
             }
 
-            /* exit을 입력 받으면 반복 종료 */
+            /* exit 을 입력 받으면 반복 종료 */
             System.out.print("더 계산하시겠습니까?(exit 입력 시 종료) : ");
             String answer = sc.next();
             if (answer.equals("exit")) {

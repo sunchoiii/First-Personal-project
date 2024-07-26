@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class Calculator {
     //필드
     // 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 List
-    static ArrayList<Integer> numbers2 = new ArrayList<>();
+    //App 클래스의 main 메서드에서 Calculator 클래스의 연산 결과를 저장하고 있는 컬렉션 필드에 직접 접근하지 못하도록 수정합니다. (캡슐화)
+    private static final ArrayList<Integer> numbers2 = new ArrayList<>();
 
 
     //메서드
     public static double calculate(int num1, int num2, char operator) throws OutBadException {
-        int result = 0;
+        int result;
         if (operator == '+') {
             result = num1 + num2;
         } else if (operator == '-') {
@@ -28,8 +29,16 @@ public class Calculator {
         return result;
     }
 
+    /* Getter 메서드 구현 */
+    // numbers2 리스트를 보여줘!
+    public static String getNumbers2 () {
+        return numbers2.toString();
+    }
+
+
+    /* Setter 메서드 구현 */
     //numbers2 리스트에 결과 저장하기 위해 메서드 생성
-    public static void numbers2(int a) {
+    public static void setNumbers2 (int a) {
         numbers2.add(a);
     }
 
