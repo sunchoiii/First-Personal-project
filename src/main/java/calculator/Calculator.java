@@ -31,22 +31,28 @@ public class Calculator {
 
     /* Getter 메서드 구현 */
     // numbers2 리스트를 보여줘!
-    public static String getNumbers2 () {
+    public static String getNumbers2() {
         return numbers2.toString();
     }
 
 
     /* Setter 메서드 구현 */
     //numbers2 리스트에 결과 저장하기 위해 메서드 생성
-    public static void setNumbers2 (int a) {
+    public static void setNumbers2(int a) {
         numbers2.add(a);
     }
 
-    //Calculator 클래스에 저장된 연산 결과들 numbers2 중  가장 먼저 저장된 데이터를 삭제하는 기능을 가진 메서드
+    //2-4 Calculator 클래스에 저장된 연산 결과들 numbers2 중  가장 먼저 저장된 데이터를 삭제하는 기능을 가진 메서드
     public void removeResult() {
         numbers2.remove(0);
     }
 
+    // 2-5 Calculator 클래스에 저장된 연산 결과들을 조회하는 기능을 가진 메서드를 구현 -> App 클래스의 main 메서드에 활용
+    public void inquiryResults() {
+        for (int result1 : numbers2) {
+            System.out.println(result1 + " ");
+        }
+    }
 }
 
 

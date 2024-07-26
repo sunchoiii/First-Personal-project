@@ -33,8 +33,6 @@ public class App {
             numbers.add(result);
             //연산 결과를 Calculator 클래스의 연산 결과를 저장하는 필드 numbers2에 저장
             setNumbers2(result);
-            //연산결과를 보여주는 numbers2 리스트를 보여줘!!
-            System.out.println(getNumbers2());
             } catch (OutBadException e) {
                 System.out.println(e.getMessage());
             }
@@ -57,6 +55,8 @@ public class App {
                 for(int result1 : numbers ) {
                     System.out.println(result1 + " ");
                 }
+                //Calculator 클래스에 저장된 연산 결과들을 조회
+                calculator.inquiryResults();
             }
 
             /* exit 을 입력 받으면 반복 종료 */
