@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Calculator {
     //필드
+    static int result;
     double areaNumber;
     // 사칙연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 List 캡슐화
     private static ArrayList<Integer> numbers2 = new ArrayList<>();
@@ -25,7 +26,6 @@ public class Calculator {
 
     //메서드
     public static double calculate(int num1, int num2, char operator) throws OutBadException {
-        int result;
         if (operator == '+') {
             result = num1 + num2;
         } else if (operator == '-') {
@@ -40,6 +40,12 @@ public class Calculator {
         } else {
             throw new OutBadException("잘못된 기호를 입력하셨습니다.");
         }
+        return result;
+    }
+
+    /* Getter 메서드 구현 */
+    // 사칙연산 결과 보여줘!
+    public static int getNumbers2() {
         return result;
     }
 

@@ -69,7 +69,7 @@ public class App {
                     int result;
                     try {
                         result = (int) calculate(num1, num2, operator);
-                        System.out.println(result);
+                        System.out.println(getNumbers2());
                         //연산 결과를 Calculator 클래스의 연산 결과를 저장하는 필드 numbers2에 저장
                         setNumbers2(result);
                     } catch (OutBadException e) {
