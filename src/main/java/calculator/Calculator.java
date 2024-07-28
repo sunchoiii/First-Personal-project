@@ -33,12 +33,6 @@ public class Calculator {
         return result;
     }
 
-    /* Getter 메서드 구현 */
-    // numbers2 리스트를 보여줘!
-    public static String getNumbers2() {
-        return numbers2.toString();
-    }
-
 
     /* Setter 메서드 구현 */
     //numbers2 리스트에 결과 저장하기 위해 메서드 생성
