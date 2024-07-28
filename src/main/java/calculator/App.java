@@ -2,16 +2,15 @@ package calculator;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import static calculator.Calculator.*;
 
 public class App {
 
     public static void main(String[] args) {
-        ArrayList<Integer> numbers = new ArrayList<>();
 
-        /* Calculator 인스턴스 생성 */
-        Calculator calculator = new Calculator();
+        /* 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 Calculator 인스턴스 생성 부분 수정 */
+        ArrayList<Integer> numbers = new ArrayList<>();
+        Calculator calculator = new Calculator(numbers);
 
         Scanner sc = new Scanner(System.in);
         /* 반복문 사용해서 연산을 반복 */
@@ -29,8 +28,6 @@ public class App {
             try {
             result = (int) calculate(num1, num2, operator);
             System.out.println(result);
-            //이 메인 메소드안의 리스트에 result 추가 (아래 코드들 실행되기 위해서)
-            numbers.add(result);
             //연산 결과를 Calculator 클래스의 연산 결과를 저장하는 필드 numbers2에 저장
             setNumbers2(result);
             } catch (OutBadException e) {
@@ -42,7 +39,6 @@ public class App {
             String remove = sc.next();
             //인덱스 0번 값 삭제 = 맨 처음 저장된 값
             if (remove.equals("remove")) {
-                numbers.remove(0);
                 // 삭제 메서드가 활용될 수 있도록 수정
                 calculator.removeResult();
             }
@@ -52,9 +48,6 @@ public class App {
             System.out.print("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회) : ");
             String show = sc.next();
             if (show.equals("inquiry")) {
-                for(int result1 : numbers ) {
-                    System.out.println(result1 + " ");
-                }
                 //Calculator 클래스에 저장된 연산 결과들을 조회
                 calculator.inquiryResults();
             }

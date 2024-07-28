@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 public class Calculator {
     //필드
-    // 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 List
-    //App 클래스의 main 메서드에서 Calculator 클래스의 연산 결과를 저장하고 있는 컬렉션 필드에 직접 접근하지 못하도록 수정합니다. (캡슐화)
-    private static final ArrayList<Integer> numbers2 = new ArrayList<>();
+    // 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 List 캡슐화
+    private static ArrayList<Integer> numbers2 = new ArrayList<>();
 
+    /* 연산 결과를 저장하는 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 */
+    /* 생성자 구현 */
+    public Calculator (ArrayList<Integer> numbers) {
+        numbers2 = numbers;
+    }
 
     //메서드
     public static double calculate(int num1, int num2, char operator) throws OutBadException {
