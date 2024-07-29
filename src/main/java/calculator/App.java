@@ -1,5 +1,6 @@
 package calculator;
-
+//ArithmeticCalculator 클래스의 연산 메서드에 책임(역할)이 많아 보입니다.
+// 사칙연산 각각의 기능을 담당하는 AddOperator, SubtractOperator, MultiplyOperator, DivideOperator 클래스를 만들어 연산 메서드의 책임을 분리 해봅니다. (SRP)
 import java.util.Scanner;
 
 public class App {
@@ -54,17 +55,17 @@ public class App {
                 /* 반복문 사용해서 연산을 반복 */
                 while (true) {
                     System.out.print("첫 번째 숫자를 입력하세요: ");
-                    int num1 = sc.nextInt();
+                    double num1 = sc.nextInt();
                     System.out.print("두 번째 숫자를 입력하세요: ");
-                    int num2 = sc.nextInt();
+                    double num2 = sc.nextInt();
                     System.out.print("사칙연산 기호를 입력하세요: ");
                     // charAt(index) : charAt 메서드는 매개변수로 char 타입으로 반환하고자 하는 문자열의 위치(index)를 받는다
                     char operator = sc.next().charAt(0);
 
                     //연산 수행 역할은 Calculator 클래스가 담당 + try ~ catch 문 사용해 예외 처리
-                    int result;
+                    double result;
                     try {
-                        result = (int) ArithmeticCalculator.calculate(num1, num2, operator);
+                        result = arithmeticCalculator.calculate(num1, num2, operator);
                         System.out.println(arithmeticCalculator.getNum());
                         //연산 결과를 Calculator 클래스의 연산 결과를 저장하는 필드 numbers2에 저장
                         arithmeticCalculator.setNum(result);

@@ -5,23 +5,26 @@ import java.util.ArrayList;
 //사칙연산을 수행하는 계산기 ArithmeticCalculator 클래스
 public class ArithmeticCalculator extends Calculator {
     //필드
-    static double result;
+    double result;
     public static ArrayList<Double> numbers2 = new ArrayList<>();
+
+    //사칙연산 클래스 생성과 초기화
+    DivideOperator divideOperator = new DivideOperator();
+    SubtractOperator subtractOperator = new SubtractOperator();
+    AddOperator addOperator = new AddOperator();
+    MultiplyOperator multiplyOperator = new MultiplyOperator();
 
 
     //메서드
-    public static double calculate(int num1, int num2, char operator) throws OutBadException {
+    public double calculate(double num1, double num2, char operator) throws OutBadException {
         if (operator == '+') {
-            result = num1 + num2;
+            result = addOperator.operate(num1,num2);
         } else if (operator == '-') {
-            result = num1 - num2;
+            result = subtractOperator.operate(num1, num2);
         } else if (operator == '*') {
-            result = num1 * num2;
+            result = multiplyOperator.operate(num1, num2);
         } else if (operator == '/') {
-            if (num2 == 0) {
-                throw new OutBadException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-            }
-            result = (double) num1 / num2;
+            result = divideOperator.operate(num1, num2);
         } else {
             throw new OutBadException("잘못된 기호를 입력하셨습니다.");
         }
