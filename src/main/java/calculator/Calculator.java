@@ -1,6 +1,5 @@
 package calculator;
 //수정한 Calculator 클래스를 활용하여 ArithmeticCalculator, CircleCalculator 클래스를 구현 (상속)
-import java.util.ArrayList;
 
 public abstract class Calculator {
 

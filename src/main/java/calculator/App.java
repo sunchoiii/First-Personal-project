@@ -1,14 +1,10 @@
 package calculator;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-
-        ArrayList<Double> numbers = new ArrayList<>();
-        ArrayList<Double> area = new ArrayList<>();
 
         ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
         CircleCalculator circleCalculator = new CircleCalculator();
