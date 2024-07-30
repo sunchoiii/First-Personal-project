@@ -1,8 +1,9 @@
 package calculator;
 
-public class MultiplyOperator {
+public class MultiplyOperator  implements Aaa {
 
-    public double operate(double num1, double num2) {
+    @Override
+    public double bbb(double num1, double num2) {
         return num1 * num2;
     }
 }

@@ -1,20 +1,15 @@
 package calculator;
-//수정한 Calculator 클래스를 활용하여 ArithmeticCalculator, CircleCalculator 클래스를 구현 (상속)
-//Calculator 클래스에 사칙연산 클래스들을 어떻게 활용할 수 있을지 고민 해봅니다. (포함 관계)
-
+//Calculator 클래스를  추상클래스로 구현/  ArithmeticCalculator, CircleCalculator 클래스에 상속
 public abstract class Calculator {
 
+    //원의넓이, 사칙연산의 공통된 메서드를 추상메서드로 구현
     //계산 결과 보여줘!
     abstract double getNum();
 
-    //리스트에 결과 저장
+    //각 리스트에 결과 저장
     abstract void setNum(double a);
 
     //저장된 연산 결과 내역을 조회
     abstract void inquiryResults();
 
-
 }
-
-
-

@@ -1,7 +1,6 @@
 package calculator;
 
 import java.util.ArrayList;
-
 //원과 관련된 연산을 수행하는 계산기 CircleCalculator 클래스
 public class CircleCalculator extends Calculator{
 
@@ -16,7 +15,7 @@ public class CircleCalculator extends Calculator{
         return areaNumber;
     }
 
-    //넓이 구한거 보여줘
+    //넓이 구한 결과 보여줘
     @Override
     public double getNum() {
         return areaNumber;

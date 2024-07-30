@@ -1,6 +1,5 @@
 package calculator;
-//ArithmeticCalculator 클래스의 연산 메서드에 책임(역할)이 많아 보입니다.
-// 사칙연산 각각의 기능을 담당하는 AddOperator, SubtractOperator, MultiplyOperator, DivideOperator 클래스를 만들어 연산 메서드의 책임을 분리 해봅니다. (SRP)
+
 import java.util.Scanner;
 
 public class App {
@@ -10,7 +9,6 @@ public class App {
         ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
         CircleCalculator circleCalculator = new CircleCalculator();
 
-
         Scanner sc = new Scanner(System.in);
 
         /* 반복문 시작 */
@@ -18,7 +16,7 @@ public class App {
         while (true) {
             //사칙연산을 진행할지 원의 넓이를 구할지 명령어를 입력 받은 후
             System.out.print("무엇을 계산하시겠습니까? (원의넓이 또는 사칙연산 입력) : ");
-            String two = sc.nextLine();
+            String two = sc.next();
 
             // 원의 넓이를 구하는 것을 선택했을 때 원의 반지름을 입력 받아 원의 넓이를 구한 후 출력되도록 구현합니다.
             if (two.equals("원의넓이")) {
@@ -62,10 +60,11 @@ public class App {
                     // charAt(index) : charAt 메서드는 매개변수로 char 타입으로 반환하고자 하는 문자열의 위치(index)를 받는다
                     char operator = sc.next().charAt(0);
 
-                    //연산 수행 역할은 Calculator 클래스가 담당 + try ~ catch 문 사용해 예외 처리
+                    //연산 수행 역할은 ArithmeticCalculator 클래스가 담당 + try ~ catch 문 사용해 예외 처리
                     double result;
                     try {
                         result = arithmeticCalculator.calculate(num1, num2, operator);
+                        //연산 결과를 보여줘
                         System.out.println(arithmeticCalculator.getNum());
                         //연산 결과를 Calculator 클래스의 연산 결과를 저장하는 필드 numbers2에 저장
                         arithmeticCalculator.setNum(result);
@@ -100,7 +99,7 @@ public class App {
                     }
                 }
             } else {
-                System.out.println("잘못 입력하셨습니다.");
+                System.out.print("잘못 입력하셨습니다.");
             }
         }
     }
